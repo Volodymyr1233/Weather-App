@@ -1,0 +1,33 @@
+.weatherItem {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(102, 102, 255);
+    border-radius: 40px;
+    color: white;
+}
+
+.mainContentBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.headers:not(:first-child) {
+    margin: 2px 0 0 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+.weatherConditions {
+    text-align: center;
+}
