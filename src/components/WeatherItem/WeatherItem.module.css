@@ -1,10 +1,11 @@
 .weatherItem {
-    width: 80%;
+    width: 85%;
     display: flex;
     justify-content: space-around;
     background-color: rgb(102, 102, 255);
     border-radius: 40px;
     color: white;
+    margin: 10px;
 }
 
 .mainContentBlock {
@@ -28,6 +29,9 @@ h1 {
     margin: 0;
 }
 
+h2 {
+    white-space: nowrap;
+}
 .weatherConditions {
     text-align: center;
 }

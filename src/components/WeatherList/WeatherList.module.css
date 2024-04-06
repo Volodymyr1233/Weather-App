@@ -1,5 +1,5 @@
 .weatherList {
     display: flex;
     width: 70%;
-    justify-content: center;
+    flex-direction: column;
 }
