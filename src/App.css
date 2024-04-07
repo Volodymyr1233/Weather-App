@@ -6,4 +6,11 @@
   margin: 5%;
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.weatherDataSection {
+  display: flex;
+  justify-content: space-between;
 }

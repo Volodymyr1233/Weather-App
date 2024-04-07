@@ -3,15 +3,13 @@ import cl from "./WeatherItem.module.css";
 // @ts-ignore
 import {WiDayCloudy, WiCloud, WiDaySunny} from "weather-icons-react";
 import {WeatherCity} from "../../models/WeatherCity";
-import {cities} from "../../hooks/cities";
 import {calculateTempCelsius} from "./calculateTempCelsius";
 
 interface WeatherItemProps {
     weatherItem: WeatherCity,
-    city_index: number,
 }
 
-const WeatherItem = ({weatherItem, city_index}: WeatherItemProps) => {
+const WeatherItem = ({weatherItem}: WeatherItemProps) => {
     const aqi = weatherItem.airQualityConditions.aqi;
     const cloudiness = weatherItem.weatherConditions.cloudiness;
 
@@ -26,7 +24,7 @@ const WeatherItem = ({weatherItem, city_index}: WeatherItemProps) => {
                 </div>
                 <div className={cl.headers}>
                     <h1>{calculateTempCelsius(weatherItem.weatherConditions.temp)}°C</h1>
-                    <h1>{cities[city_index]}</h1>
+                    <h1>{weatherItem.city}</h1>
                 </div>
 
             </div>
