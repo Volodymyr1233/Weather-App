@@ -9,5 +9,14 @@ export const cities = [
     "Kyiv",
     "Lisbon",
     "Madrid",
-
+    "Shanghai",
+    "Los Angeles",
+    "Paris",
+    "Toronto",
+    "Singapore",
+    "Washington",
+    "Barcelona",
+    "Dubai",
+    "Rome",
+    "Kuwait"
 ]

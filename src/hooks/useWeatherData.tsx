@@ -4,9 +4,7 @@ import {WeatherCity} from "../models/WeatherCity";
 import {cities} from "./cities";
 
 
-
 const useWeatherData = (setWeatherData: React.Dispatch<React.SetStateAction<WeatherCity[]>>) => {
-
     useMemo(async() => {
         const weatherDataArray = [];
         for (let i = 0; i < cities.length; i++) {
@@ -38,7 +36,7 @@ const useWeatherData = (setWeatherData: React.Dispatch<React.SetStateAction<Weat
                 }
 
                 const myWeatherTest = {
-                    city: city,
+                    city: cities[i],
                     airQualityConditions: airQualityConditions,
                     weatherConditions: weatherConditions,
                 }
@@ -46,7 +44,7 @@ const useWeatherData = (setWeatherData: React.Dispatch<React.SetStateAction<Weat
                 weatherDataArray.push(myWeatherTest);
 
             } catch (Exception: any) {
-                console.log("This city doesn't exist");
+                console.log("Connection failed");
             }
 
         }

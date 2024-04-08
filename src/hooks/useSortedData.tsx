@@ -1,5 +1,9 @@
-import {useMemo} from "react";
+import {useContext, useMemo} from "react";
 import {WeatherCity} from "../models/WeatherCity";
+import {calculateTempCelsius} from "../components/WeatherItem/calculateTempCelsius";
+import useWeatherData from "./useWeatherData";
+
+
 
 
 const useSortedData = (sort: string, weatherData: WeatherCity[]) => {

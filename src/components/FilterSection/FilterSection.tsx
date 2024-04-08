@@ -1,29 +1,28 @@
 import React from "react";
 import cl from "./FilterSection.module.css";
-import {filters} from "./filters";
+import FilterSectionItem from "./FilterSectionItem";
+import {filterTemp} from "./filters/filterTemp";
+import {filterCloud} from "./filters/filterCloud";
+import {filterHum} from "./filters/filterHum";
 
 interface FilterSectionProps {
-    checked: boolean,
-    changeChecked: () => void,
+    checkedTemperature: boolean[],
+    changeCheckedTemperature: (position: number) => void,
+    checkedCloudiness: boolean[],
+    changeCheckedCloudiness: (position: number) => void,
+    checkedHumidity: boolean[],
+    changeCheckedHumidity: (position: number) => void,
+
+
 }
-const FilterSection = ({checked, changeChecked}: FilterSectionProps) => {
+const FilterSection = ({checkedTemperature, changeCheckedTemperature, checkedCloudiness, changeCheckedCloudiness, checkedHumidity, changeCheckedHumidity}: FilterSectionProps) => {
     return (
         <div className={cl.filterSection}>
             <h2>Filter Data</h2>
             <div className={cl.filterFields}>
-                {filters.map(filter => (
-                    <div>
-                        <h3>{filter.name}</h3>
-                        {filter.values.map(value => (
-                            <li>
-                                <label>
-                                    <input type="checkbox" checked={checked} onChange={changeChecked}/>
-                                    {value}
-                                </label>
-                            </li>
-                        ))}
-                    </div>
-                ))}
+                <FilterSectionItem filter={filterTemp} checked={checkedTemperature} onChange={changeCheckedTemperature}/>
+                <FilterSectionItem filter={filterCloud} checked={checkedCloudiness} onChange={changeCheckedCloudiness}/>
+                <FilterSectionItem filter={filterHum} checked={checkedHumidity} onChange={changeCheckedHumidity}/>
             </div>
         </div>
     )
