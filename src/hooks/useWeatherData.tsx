@@ -8,7 +8,6 @@ import {cities} from "./cities";
 const useWeatherData = (setWeatherData: React.Dispatch<React.SetStateAction<WeatherCity[]>>) => {
 
     useMemo(async() => {
-        console.log("useWeatherData")
         const weatherDataArray = [];
         for (let i = 0; i < cities.length; i++) {
             try {
