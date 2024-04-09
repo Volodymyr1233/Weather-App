@@ -8,11 +8,14 @@ import SortSelect from "./components/SortSelect/SortSelect";
 import useWeatherData from "./hooks/useWeatherData";
 import useSortedData from "./hooks/useSortedData";
 import {useFilterData} from "./hooks/useFilterData";
+import SearchBar from "./components/SearchBar/SearchBar";
+import useSearchedData from "./hooks/useSearchedData";
 
 function App() {
     const checkBoxLength = 3;
     const [weatherData, setWeatherData] = useState<WeatherCity[]>([]);
     const [sort, setSort] = useState<string>("");
+    const [searchValue, setSearchValue] = useState<string>("");
     const [checkedTemperature, setCheckedTemperature] = useState<boolean[]>(
         new Array(checkBoxLength).fill(false)
     )
@@ -58,12 +61,20 @@ function App() {
 
     const sortedAndFilterData = useFilterData(checkedHumidity, sortedData, checkedTemperature, checkedCloudiness);
 
+    const sortedAndFilterAndSearchedData = useSearchedData(searchValue, sortedAndFilterData);
 
   return (
     <div className="App">
       <Header/>
         <div className="Content">
-            <SortSelect OnChange={changeSort}/>
+            <div>
+                <SearchBar type="text" value={searchValue} onChange={(e) =>{
+                    e.preventDefault();
+                    setSearchValue(e.target.value)}
+                }/>
+                <SortSelect OnChange={changeSort}/>
+            </div>
+
             <div className="weatherDataSection">
                 <FilterSection
                     checkedTemperature={checkedTemperature}
@@ -73,7 +84,7 @@ function App() {
                     checkedHumidity={checkedHumidity}
                     changeCheckedHumidity={changeCheckedHumidity}
                 />
-                <WeatherList weatherData={sortedAndFilterData}/>
+                <WeatherList weatherData={sortedAndFilterAndSearchedData}/>
             </div>
         </div>
 
