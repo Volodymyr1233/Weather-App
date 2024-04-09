@@ -1,6 +1,6 @@
 
 export const filterHum = {
-    name: "Humidity",
+    name: "💧 Humidity",
     values: [
         "more than 75%",
         "50% - 75%",

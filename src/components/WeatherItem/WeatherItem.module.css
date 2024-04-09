@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-around;
     background-color: rgb(102, 102, 255);
-    border-radius: 40px;
+    border-radius: 50px;
     color: white;
     margin: 10px;
 }
@@ -13,12 +13,12 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    width: 22%;
 }
 
 ul {
     list-style-type: none;
-    padding: 0;
-    text-align: center;
+    padding-left: 0;
 }
 
 .headers:not(:first-child) {
@@ -33,5 +33,11 @@ h2 {
     white-space: nowrap;
 }
 .weatherConditions {
+    width: 30%;
+    text-align: center;
+}
+
+.airConditions {
+    width: 30%;
     text-align: center;
 }

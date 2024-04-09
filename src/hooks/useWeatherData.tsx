@@ -12,7 +12,6 @@ const useWeatherData = (setWeatherData: React.Dispatch<React.SetStateAction<Weat
                 const geoCodResponse = await WeatherAPI.getLatAndLon(cities[i]);
                 const lat = geoCodResponse.data[0].lat;
                 const lon = geoCodResponse.data[0].lon;
-                const city = geoCodResponse.data[0].local_names["en"];
                 const airConditionsResponse = await WeatherAPI.getAirConditions(lat, lon);
                 const weatherConditionsResponse = await WeatherAPI.getWeatherConditions(lat, lon);
 

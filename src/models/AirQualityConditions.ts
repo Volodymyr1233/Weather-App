@@ -1,5 +1,5 @@
 export interface AirQualityConditions {
-    co: number,
+    [co: string]: number,
     no: number,
     no2: number,
     o3: number,

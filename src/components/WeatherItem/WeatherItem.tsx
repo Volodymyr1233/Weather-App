@@ -4,6 +4,8 @@ import cl from "./WeatherItem.module.css";
 import {WiDayCloudy, WiCloud, WiDaySunny} from "weather-icons-react";
 import {WeatherCity} from "../../models/WeatherCity";
 import {calculateTempCelsius} from "./calculateTempCelsius";
+import {airConditionsProps} from "./airConditionsProps";
+import {weatherConditionsProps} from "./weatherConditionsProps";
 
 interface WeatherItemProps {
     weatherItem: WeatherCity,
@@ -28,27 +30,29 @@ const WeatherItem = ({weatherItem}: WeatherItemProps) => {
                 </div>
 
             </div>
-            <div>
+            <div className={cl.airConditions}>
                 <h2>Air conditions</h2>
                 <ul>
-                    <li>co: {weatherItem.airQualityConditions.co}</li>
-                    <li>no: {weatherItem.airQualityConditions.no}</li>
-                    <li>no2: {weatherItem.airQualityConditions.no2}</li>
-                    <li>o3: {weatherItem.airQualityConditions.o3}</li>
-                    <li>so2: {weatherItem.airQualityConditions.so2}</li>
-                    <li>nh3: {weatherItem.airQualityConditions.nh3}</li>
+                    {airConditionsProps.map(item =>
+                        <li><p style={{
+                            fontWeight: "bold",
+                            display: "inline"
+                        }}>{item}:</p> {weatherItem.airQualityConditions[item]}</li>
+                    )}
                 </ul>
 
             </div>
             <div className={cl.weatherConditions}>
                 <h2>Weather conditions</h2>
                 <ul>
-                    <li>Humidity: {weatherItem.weatherConditions.humidity}%</li>
-                    <li>Cloudiness: {cloudiness}%</li>
-                    <li>Description: {weatherItem.weatherConditions.description}</li>
+                    {weatherConditionsProps.map(item =>
+                        item === "Description"
+                            ? <li>Description: {weatherItem.weatherConditions.description}</li>
+                            : <li>{item}: {weatherItem.weatherConditions[item.toLowerCase()]}%</li>
+                    )}
                 </ul>
 
-                {aqi <= 5 && aqi > 3 && <h3 style={{color: "green"}}>Air Status:<p style={{display: "inline", color: "green"}}> {aqi}</p></h3>}
+                {aqi <= 5 && aqi > 3 && <h3 style={{color: "rgb(51,255,51)"}}>Air Status:<p style={{display: "inline", color: "rgb(51,255,51)"}}> {aqi}</p></h3>}
                 {aqi <= 3 && aqi > 1 && <h3 style={{color: "yellow"}}>Air Status:<p style={{display: "inline", color: "yellow"}}> {aqi}</p></h3>}
                 {aqi === 1 && <h3 style={{color: "rgb(64, 64, 64)"}}>Air Status:<p style={{display: "inline", color: "rgb(64, 64, 64)"}}> {aqi}</p></h3>}
             </div>

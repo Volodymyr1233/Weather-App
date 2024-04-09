@@ -1,5 +1,5 @@
 export const filterTemp = {
-    name: "Temperature",
+    name: "🌡Temperature",
     values: [
         "more than 20°C",
         "15°C-20°C",

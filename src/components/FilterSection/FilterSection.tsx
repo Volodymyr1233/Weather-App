@@ -12,8 +12,6 @@ interface FilterSectionProps {
     changeCheckedCloudiness: (position: number) => void,
     checkedHumidity: boolean[],
     changeCheckedHumidity: (position: number) => void,
-
-
 }
 const FilterSection = ({checkedTemperature, changeCheckedTemperature, checkedCloudiness, changeCheckedCloudiness, checkedHumidity, changeCheckedHumidity}: FilterSectionProps) => {
     return (

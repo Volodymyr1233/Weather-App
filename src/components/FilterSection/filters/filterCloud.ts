@@ -1,6 +1,6 @@
 
 export const filterCloud = {
-    name: "Cloudiness",
+    name: "☁️ Cloudiness",
     values: [
         "more than 75%",
         "50%-75%",

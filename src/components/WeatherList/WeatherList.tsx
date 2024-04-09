@@ -1,4 +1,4 @@
-import React, {useContext, useMemo} from "react";
+import React from "react";
 import cl from "./WeatherList.module.css";
 import WeatherItem from "../WeatherItem/WeatherItem";
 import {WeatherCity} from "../../models/WeatherCity";

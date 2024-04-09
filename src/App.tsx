@@ -10,18 +10,19 @@ import useSortedData from "./hooks/useSortedData";
 import {useFilterData} from "./hooks/useFilterData";
 
 function App() {
+    const checkBoxLength = 3;
     const [weatherData, setWeatherData] = useState<WeatherCity[]>([]);
     const [sort, setSort] = useState<string>("");
     const [checkedTemperature, setCheckedTemperature] = useState<boolean[]>(
-        new Array(3).fill(false)
+        new Array(checkBoxLength).fill(false)
     )
 
     const [checkedCloudiness, setcheckedCloudiness] = useState<boolean[]>(
-        new Array(3).fill(false)
+        new Array(checkBoxLength).fill(false)
     )
 
     const [checkedHumidity, setCheckedHumidity] = useState<boolean[]>(
-        new Array(3).fill(false)
+        new Array(checkBoxLength).fill(false)
     )
 
     const changeCheckedTemperature = (position: number) => {
@@ -56,7 +57,6 @@ function App() {
     const sortedData = useSortedData(sort, weatherData);
 
     const sortedAndFilterData = useFilterData(checkedHumidity, sortedData, checkedTemperature, checkedCloudiness);
-
 
 
   return (

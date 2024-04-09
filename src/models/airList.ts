@@ -1,1 +1,0 @@
-export const airList = ["co", "nh3", "no", "no2", "o3", "so2"];

@@ -1,6 +1,7 @@
 export interface WeatherConditions {
-    temp: number,
+    [temp: string]: number,
     humidity: number,
     cloudiness: number,
+    // @ts-ignore
     description: string,
 }

@@ -9,3 +9,17 @@ li {
 .filterFields {
     padding-left: 10px;
 }
+
+.filterSection h2 {
+    font-family: "Belleza", sans-serif;
+    font-size: 28px;
+}
+
+.filterSection h3 {
+    font-family: "Belleza", sans-serif;
+    font-size: 22px;
+}
+
+label {
+    font-size: 18px;
+}
