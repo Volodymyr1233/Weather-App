@@ -67,13 +67,11 @@ function App() {
     <div className="App">
       <Header/>
         <div className="Content">
-            <div>
-                <SearchBar type="text" value={searchValue} onChange={(e) =>{
-                    e.preventDefault();
-                    setSearchValue(e.target.value)}
-                }/>
-                <SortSelect OnChange={changeSort}/>
-            </div>
+            <SearchBar type="text" value={searchValue} onChange={(e) =>{
+                e.preventDefault();
+                setSearchValue(e.target.value)}
+            }/>
+            <SortSelect OnChange={changeSort}/>
 
             <div className="weatherDataSection">
                 <FilterSection

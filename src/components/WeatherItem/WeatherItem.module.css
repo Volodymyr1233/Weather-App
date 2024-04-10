@@ -1,7 +1,8 @@
 .weatherItem {
     width: 85%;
     display: flex;
-    justify-content: space-around;
+    box-sizing: border-box;
+    justify-content: space-evenly;
     background-color: rgb(102, 102, 255);
     border-radius: 50px;
     color: white;
@@ -13,7 +14,7 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    width: 22%;
+    width: 25%;
 }
 
 ul {
@@ -40,4 +41,91 @@ h2 {
 .airConditions {
     width: 30%;
     text-align: center;
+}
+
+@media (max-width: 1100px) {
+    .weatherItem {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 930px) {
+
+    .weatherItem {
+        font-size: 12px;
+    }
+    .weatherConditions {
+        margin-right: 30px;
+    }
+
+    .mainContentBlock {
+        font-size: 12px;
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 800px) {
+    .weatherItem {
+        width: 95%;
+        font-size: 11px;
+    }
+    .airConditions {
+        font-size: 10px;
+        margin-left: 10px;
+        li {font-size: 13px}
+    }
+
+    .weatherConditions {
+        font-size: 10px;
+        li {font-size: 13px}
+    }
+
+    .mainContentBlock {
+        font-size: 9px;
+        margin-left: 30px;
+        margin-bottom: 13px;
+    }
+}
+
+@media (max-width: 460px) {
+    .airConditions {
+        font-size: 9px;
+        margin-left: 10px;
+        li {font-size: 11px}
+    }
+
+    .weatherConditions {
+        font-size: 9px;
+        li {font-size: 11px}
+    }
+
+    .mainContentBlock {
+        margin-left: 0;
+    }
+
+    .headers:not(:first-child) {
+        margin-left: 20px;
+    }
+
+    span {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 380px) {
+    .airConditions {
+        font-size: 7px;
+        margin-left: 10px;
+        li {font-size: 10px}
+    }
+
+    .weatherConditions {
+        font-size: 7px;
+        li {font-size: 10px}
+    }
+
+    .headers:not(:first-child) {
+        margin-left: 15px;
+        font-size: 10px;
+    }
 }

@@ -10,7 +10,7 @@ const SortSelect = ({OnChange}: SortSelectProps) => {
     return (
         <motion.select
             whileHover={{
-                scale: 1.02,
+                scale: 1.01,
                 transition: {duration: 0.6}
             }}
             className={cl.sortSelect}

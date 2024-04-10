@@ -37,10 +37,10 @@ const WeatherItem = ({weatherItem}: WeatherItemProps) => {
             className={cl.weatherItem}>
             <div className={cl.mainContentBlock}>
 
-                <div style={{textAlign: "center"}}>
-                    {cloudiness <= 100 && cloudiness > 75 && <WiCloud size={90}/>}
-                    {cloudiness <= 75 && cloudiness >= 50 && <WiDayCloudy size={90}/>}
-                    {cloudiness < 50 && <WiDaySunny size={90}/>}
+                <div style={{textAlign: "center"}} className={cl.icons}>
+                        {cloudiness <= 100 && cloudiness > 75 && <span><WiCloud size={82}/></span>}
+                    {cloudiness <= 75 && cloudiness >= 50 && <span><WiDayCloudy size={82}/></span>}
+                    {cloudiness < 50 && <span><WiDaySunny size={82}/></span>}
                 </div>
                 <div className={cl.headers}>
                     <h1>{calculateTempCelsius(weatherItem.weatherConditions.temp)}°C</h1>

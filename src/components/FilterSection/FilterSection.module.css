@@ -1,5 +1,6 @@
 .filterSection {
     width: 20%;
+    overflow-wrap: inherit;
 }
 
 li {
@@ -22,4 +23,67 @@ li {
 
 label {
     font-size: 18px;
+}
+
+.filterItem label {
+    font-size: 18px;
+}
+
+@media (max-width: 800px) {
+    .filterItem label {
+        font-size: 16px;
+    }
+
+    .filterSection h3 {
+        font-size: 15px;
+    }
+
+    .filterSection h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 650px) {
+    .filterSection {
+        margin-top: -40px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 10px;
+
+    }
+
+    .filterSection h3 {
+        font-size: 12px
+    }
+
+    .filterSection h2 {
+        font-size: 22px;
+    }
+
+    .filterItem {
+        display: flex;
+        flex-direction: column;
+        font-size: 10px;
+        label {
+            font-size: 11px
+        }
+    }
+
+    .filterFields {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 345px) {
+    .filterSection h3 {
+        font-size: 11px
+    }
+
+    .filterItem label {
+        font-size: 10px;
+    }
 }

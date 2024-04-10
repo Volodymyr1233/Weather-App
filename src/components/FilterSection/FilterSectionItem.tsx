@@ -1,5 +1,6 @@
 import React from "react";
 import {filterItemIntrf} from "./filters/filterItemIntrf";
+import cl from "./FilterSection.module.css";
 
 
 interface FilterSectionItemProp {
@@ -9,7 +10,7 @@ interface FilterSectionItemProp {
 }
 const FilterSectionItem = ({filter, checked, onChange}: FilterSectionItemProp) => {
     return (
-        <div>
+        <div className={cl.filterItem}>
             <h3>{filter.name}</h3>
             {filter.values.map((value, index) => (
                 <li style={{paddingLeft: "7%"}}>

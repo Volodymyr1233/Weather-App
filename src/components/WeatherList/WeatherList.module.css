@@ -3,3 +3,9 @@
     width: 70%;
     flex-direction: column;
 }
+
+@media (max-width: 650px) {
+    .weatherList {
+        width: 100%;
+    }
+}

@@ -14,3 +14,10 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media (max-width: 650px) {
+  .weatherDataSection {
+    width: 100%;
+    flex-direction: column;
+  }
+}

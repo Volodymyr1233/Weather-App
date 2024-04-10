@@ -16,14 +16,14 @@
 }
 
 .searchForm {
-    width: 90%;
+    width: 100%;
     display: inline-block;
 }
 
 .searchIcon {
     font-size: 20px;
     position: absolute;
-    left: 5.5%;
-    top: 17.8%;
+    margin-left: 10px;
+    margin-top: 10px;
     z-index: 1;
 }
