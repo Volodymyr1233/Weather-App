@@ -4,7 +4,7 @@ import {WeatherCity} from "../models/WeatherCity";
 import {cities} from "./cities";
 
 
-const useWeatherData = (setWeatherData: React.Dispatch<React.SetStateAction<WeatherCity[]>>) => {
+const useWeatherData = (setWeatherData: React.Dispatch<React.SetStateAction<WeatherCity[]>>, setIsLoading:  React.Dispatch<React.SetStateAction<boolean>>) => {
     useMemo(async() => {
         const weatherDataArray = [];
         for (let i = 0; i < cities.length; i++) {
@@ -48,6 +48,7 @@ const useWeatherData = (setWeatherData: React.Dispatch<React.SetStateAction<Weat
 
         }
 
+        setIsLoading(false);
         setWeatherData(weatherDataArray);
 
 

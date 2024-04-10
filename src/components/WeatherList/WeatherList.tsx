@@ -2,18 +2,22 @@ import React from "react";
 import cl from "./WeatherList.module.css";
 import WeatherItem from "../WeatherItem/WeatherItem";
 import {WeatherCity} from "../../models/WeatherCity";
+import IsLoading from "../isLoading/isLoading";
 
 interface WeatherListProps {
-    weatherData: WeatherCity[]
+    weatherData: WeatherCity[],
+    isLoading: boolean
 }
-const WeatherList = ({weatherData}: WeatherListProps) => {
+const WeatherList = ({weatherData, isLoading}: WeatherListProps) => {
 
 
     return (
         <div className={cl.weatherList}>
-            {weatherData.map((weatherItem, index) =>
-                <WeatherItem weatherItem={weatherItem} key={index}/>
-            )}
+            {isLoading
+            ? <IsLoading/>
+            : weatherData.map((weatherItem, index) =>
+                        <WeatherItem weatherItem={weatherItem} key={index}/>
+                    )}
         </div>
     )
 }

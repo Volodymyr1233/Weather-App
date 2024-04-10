@@ -1,0 +1,19 @@
+.loading {
+    width: 100px;
+    height: 100px;
+    display: inline;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 6px dashed rgb(102, 102, 255);
+    animation: rotation 1.5s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -16,6 +16,7 @@ function App() {
     const [weatherData, setWeatherData] = useState<WeatherCity[]>([]);
     const [sort, setSort] = useState<string>("");
     const [searchValue, setSearchValue] = useState<string>("");
+    const [isLoading, setIsLoading] = useState<boolean>(true);
     const [checkedTemperature, setCheckedTemperature] = useState<boolean[]>(
         new Array(checkBoxLength).fill(false)
     )
@@ -55,7 +56,7 @@ function App() {
         setSort(sort);
     }
 
-    useWeatherData(setWeatherData);
+    useWeatherData(setWeatherData, setIsLoading);
 
     const sortedData = useSortedData(sort, weatherData);
 
@@ -82,7 +83,7 @@ function App() {
                     checkedHumidity={checkedHumidity}
                     changeCheckedHumidity={changeCheckedHumidity}
                 />
-                <WeatherList weatherData={sortedAndFilterAndSearchedData}/>
+                <WeatherList weatherData={sortedAndFilterAndSearchedData} isLoading={isLoading}/>
             </div>
         </div>
 
