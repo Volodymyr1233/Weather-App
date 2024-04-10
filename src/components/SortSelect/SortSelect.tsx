@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import cl from "./SortSelect.module.css";
 
 interface SortSelectProps {
     OnChange: (value: string) => void,
@@ -6,7 +7,7 @@ interface SortSelectProps {
 const SortSelect = ({OnChange}: SortSelectProps) => {
     const[disabledState, setDisabledState] = useState<boolean>(false);
     return (
-        <select style={{display: "inline"}} name="weatherData" onChange={(e) => {setDisabledState(true); OnChange(e.target.value)}}>
+        <select className={cl.sortSelect} name="weatherData" onChange={(e) => {setDisabledState(true); OnChange(e.target.value)}}>
             <option value="Sort by: " disabled={disabledState}>Sort by:</option>
             <option value="city">city</option>
             <option value="aqi">air status</option>
