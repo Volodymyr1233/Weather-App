@@ -6,6 +6,7 @@ import {WeatherCity} from "../../models/WeatherCity";
 import {calculateTempCelsius} from "./calculateTempCelsius";
 import {airConditionsProps} from "./airConditionsProps";
 import {weatherConditionsProps} from "./weatherConditionsProps";
+import {motion} from "framer-motion";
 
 interface WeatherItemProps {
     weatherItem: WeatherCity,
@@ -15,8 +16,25 @@ const WeatherItem = ({weatherItem}: WeatherItemProps) => {
     const aqi = weatherItem.airQualityConditions.aqi;
     const cloudiness = weatherItem.weatherConditions.cloudiness;
 
+    const list = {
+        hidden: {
+            scale: 1,
+            translateX: -100
+        },
+    }
+
     return (
-        <div className={cl.weatherItem}>
+        <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={list}
+            whileInView={{
+                scale: 1.06,
+                translateX: 0,
+                transition: { duration: 1 },
+
+            }}
+            className={cl.weatherItem}>
             <div className={cl.mainContentBlock}>
 
                 <div style={{textAlign: "center"}}>
@@ -56,7 +74,7 @@ const WeatherItem = ({weatherItem}: WeatherItemProps) => {
                 {aqi <= 3 && aqi > 1 && <h3 style={{color: "yellow"}}>Air Status:<p style={{display: "inline", color: "yellow"}}> {aqi}</p></h3>}
                 {aqi === 1 && <h3 style={{color: "rgb(64, 64, 64)"}}>Air Status:<p style={{display: "inline", color: "rgb(64, 64, 64)"}}> {aqi}</p></h3>}
             </div>
-        </div>
+        </motion.div>
     )
 }
 
