@@ -10,6 +10,8 @@ import useSortedData from "./hooks/useSortedData";
 import {useFilterData} from "./hooks/useFilterData";
 import SearchBar from "./components/SearchBar/SearchBar";
 import useSearchedData from "./hooks/useSearchedData";
+import WeatherForm from "./components/WeatherForm/WeatherForm";
+import useAddWeatherData from "./hooks/useAddWeatherData";
 
 function App() {
     const checkBoxLength = 3;
@@ -17,6 +19,8 @@ function App() {
     const [sort, setSort] = useState<string>("");
     const [searchValue, setSearchValue] = useState<string>("");
     const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [visible, setVisible] = useState<boolean>(false);
+    const [city, setCity] = useState<string>("");
     const [checkedTemperature, setCheckedTemperature] = useState<boolean[]>(
         new Array(checkBoxLength).fill(false)
     )
@@ -56,6 +60,12 @@ function App() {
         setSort(sort);
     }
 
+    const addWeatherData = (city: string) => {
+        setCity(city);
+    }
+
+    useAddWeatherData(city, weatherData, setWeatherData);
+
     useWeatherData(setWeatherData, setIsLoading);
 
     const sortedData = useSortedData(sort, weatherData);
@@ -68,6 +78,8 @@ function App() {
     <div className="App">
       <Header/>
         <div className="Content">
+            <button onClick={() => setVisible(true)}>Add City Form</button>
+            {visible && <WeatherForm setVisible={setVisible} addWeatherData={addWeatherData}/>}
             <SearchBar type="text" value={searchValue} onChange={(e) =>{
                 e.preventDefault();
                 setSearchValue(e.target.value)}
@@ -83,7 +95,7 @@ function App() {
                     checkedHumidity={checkedHumidity}
                     changeCheckedHumidity={changeCheckedHumidity}
                 />
-                <WeatherList weatherData={sortedAndFilterAndSearchedData} isLoading={isLoading}/>
+                <WeatherList weatherData={sortedAndFilterAndSearchedData} isLoading={isLoading} setWeatherData={setWeatherData}/>
             </div>
         </div>
 

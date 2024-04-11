@@ -7,12 +7,14 @@ import {calculateTempCelsius} from "./calculateTempCelsius";
 import {airConditionsProps} from "./airConditionsProps";
 import {weatherConditionsProps} from "./weatherConditionsProps";
 import {motion} from "framer-motion";
+import { MdDelete } from "react-icons/md";
 
 interface WeatherItemProps {
     weatherItem: WeatherCity,
+    deleteWeatherData: (city: string) => void,
 }
 
-const WeatherItem = ({weatherItem}: WeatherItemProps) => {
+const WeatherItem = ({weatherItem, deleteWeatherData}: WeatherItemProps) => {
     const aqi = weatherItem.airQualityConditions.aqi;
     const cloudiness = weatherItem.weatherConditions.cloudiness;
 
@@ -74,6 +76,8 @@ const WeatherItem = ({weatherItem}: WeatherItemProps) => {
                 {aqi <= 3 && aqi > 1 && <h3 style={{color: "yellow"}}>Air Status:<p style={{display: "inline", color: "yellow"}}> {aqi}</p></h3>}
                 {aqi === 1 && <h3 style={{color: "rgb(64, 64, 64)"}}>Air Status:<p style={{display: "inline", color: "rgb(64, 64, 64)"}}> {aqi}</p></h3>}
             </div>
+
+            <span className={cl.deleteIcon} onClick={() => deleteWeatherData(weatherItem.city)}><MdDelete size={24} color={"rgb(0, 255, 255)"}/></span>
         </motion.div>
     )
 }

@@ -43,6 +43,12 @@ h2 {
     text-align: center;
 }
 
+.deleteIcon {
+    position: absolute;
+    top: 80%;
+    left: 92%;
+}
+
 @media (max-width: 1100px) {
     .weatherItem {
         font-size: 13px;
@@ -61,6 +67,11 @@ h2 {
     .mainContentBlock {
         font-size: 12px;
         margin-left: 10px;
+    }
+
+    .deleteIcon {
+        top: 75%;
+        left: 88%;
     }
 }
 
