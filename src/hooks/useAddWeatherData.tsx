@@ -3,9 +3,9 @@ import WeatherAPI from "../API/WeatherAPI";
 import {WeatherCity} from "../models/WeatherCity";
 import {cities} from "./cities";
 
-const useAddWeatherData = (city: string, weatherData: WeatherCity[], setWeatherData: React.Dispatch<React.SetStateAction<WeatherCity[]>>) => {
+const useAddWeatherData = (setCity: React.Dispatch<React.SetStateAction<string>>, city: string, weatherData: WeatherCity[], setWeatherData: React.Dispatch<React.SetStateAction<WeatherCity[]>>) => {
     useMemo(async() => {
-        if (!cities.includes(city)) {
+        if (!cities.includes(city) && city !== "") {
             try {
                 const geoCodResponse = await WeatherAPI.getLatAndLon(city.toLowerCase());
                 const lat = geoCodResponse.data[0].lat;
@@ -38,6 +38,7 @@ const useAddWeatherData = (city: string, weatherData: WeatherCity[], setWeatherD
                     weatherConditions: weatherConditions,
                 }
 
+                setCity("");
                 setWeatherData([weatherObject, ...weatherData]);
 
 

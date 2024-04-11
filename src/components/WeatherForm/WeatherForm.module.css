@@ -1,0 +1,55 @@
+.dataForm {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+}
+
+.content {
+    padding: 25px;
+    background: white;
+    border-radius: 16px;
+    min-width: 230px;
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    outline: none;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(64, 64, 64);
+    color: white;
+    font-family: 'Benett', sans-serif;
+    font-size: 15px;
+    padding: 5px 0 5px 10px;
+}
+
+.addButt {
+    border: none;
+    outline: none;
+    background: rgb(0, 204, 0);
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    width: 70px;
+    margin: 0 auto;
+}
+
+.addButt:hover {
+    background-color: brown;
+    transition: 0.7s;
+}

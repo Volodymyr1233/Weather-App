@@ -13,7 +13,7 @@ const FilterSectionItem = ({filter, checked, onChange}: FilterSectionItemProp) =
         <div className={cl.filterItem}>
             <h3>{filter.name}</h3>
             {filter.values.map((value, index) => (
-                <li style={{paddingLeft: "7%"}}>
+                <li key={index} style={{paddingLeft: "7%"}}>
                     <label>
                         <input type="checkbox" checked={checked[index]} onChange={() => onChange(index)}/>
                         {value}

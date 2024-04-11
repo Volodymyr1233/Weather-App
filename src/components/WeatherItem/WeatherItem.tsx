@@ -53,8 +53,8 @@ const WeatherItem = ({weatherItem, deleteWeatherData}: WeatherItemProps) => {
             <div className={cl.airConditions}>
                 <h2>Air conditions</h2>
                 <ul>
-                    {airConditionsProps.map(item =>
-                        <li><p style={{
+                    {airConditionsProps.map((item, index) =>
+                        <li key={index}><p style={{
                             fontWeight: "bold",
                             display: "inline"
                         }}>{item}:</p> {weatherItem.airQualityConditions[item]}</li>
@@ -65,10 +65,10 @@ const WeatherItem = ({weatherItem, deleteWeatherData}: WeatherItemProps) => {
             <div className={cl.weatherConditions}>
                 <h2>Weather conditions</h2>
                 <ul>
-                    {weatherConditionsProps.map(item =>
+                    {weatherConditionsProps.map((item,index) =>
                         item === "Description"
-                            ? <li>Description: {weatherItem.weatherConditions.description}</li>
-                            : <li>{item}: {weatherItem.weatherConditions[item.toLowerCase()]}%</li>
+                            ? <li key={index}>Description: {weatherItem.weatherConditions.description}</li>
+                            : <li key={index}>{item}: {weatherItem.weatherConditions[item.toLowerCase()]}%</li>
                     )}
                 </ul>
 

@@ -12,6 +12,7 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import useSearchedData from "./hooks/useSearchedData";
 import WeatherForm from "./components/WeatherForm/WeatherForm";
 import useAddWeatherData from "./hooks/useAddWeatherData";
+import AddFormButton from "./components/AddFormButton/AddFormButton";
 
 function App() {
     const checkBoxLength = 3;
@@ -64,7 +65,7 @@ function App() {
         setCity(city);
     }
 
-    useAddWeatherData(city, weatherData, setWeatherData);
+    useAddWeatherData(setCity, city, weatherData, setWeatherData);
 
     useWeatherData(setWeatherData, setIsLoading);
 
@@ -78,8 +79,8 @@ function App() {
     <div className="App">
       <Header/>
         <div className="Content">
-            <button onClick={() => setVisible(true)}>Add City Form</button>
-            {visible && <WeatherForm setVisible={setVisible} addWeatherData={addWeatherData}/>}
+            <AddFormButton setVisible={setVisible}/>
+            <WeatherForm setVisible={setVisible} visible={visible} addWeatherData={addWeatherData}/>
             <SearchBar type="text" value={searchValue} onChange={(e) =>{
                 e.preventDefault();
                 setSearchValue(e.target.value)}

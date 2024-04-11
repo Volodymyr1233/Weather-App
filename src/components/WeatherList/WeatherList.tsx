@@ -13,7 +13,7 @@ interface WeatherListProps {
 const WeatherList = ({weatherData, isLoading, setWeatherData}: WeatherListProps) => {
 
     const deleteWeatherData = (city: string) => {
-        if (cities.includes(city)) cities.splice(cities.indexOf(city), 1);
+        if (cities.includes(city.toLowerCase())) cities.splice(cities.indexOf(city), 1);
         const newWeatherData = weatherData.filter(weatherItem => weatherItem.city !== city);
         setWeatherData(newWeatherData);
     }

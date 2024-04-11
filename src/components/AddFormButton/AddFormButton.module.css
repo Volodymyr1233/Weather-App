@@ -1,0 +1,23 @@
+.addForm {
+    width: 159px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: black;
+    color: orange;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: -10px;
+}
+
+.addForm:hover {
+    transform: translateY(-3px);
+    transition: 1s;
+
+}
+@media (max-width: 800px) {
+    .addForm {
+        font-size: 14px;
+    }
+}

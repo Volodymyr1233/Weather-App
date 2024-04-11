@@ -121,6 +121,11 @@ h2 {
     span {
         margin-left: 10px;
     }
+
+    .deleteIcon {
+        top: 75%;
+        left: 80%;
+    }
 }
 
 @media (max-width: 380px) {
@@ -139,4 +144,5 @@ h2 {
         margin-left: 15px;
         font-size: 10px;
     }
+
 }
