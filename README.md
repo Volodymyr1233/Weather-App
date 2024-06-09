@@ -1,4 +1,4 @@
-# This is my recruitment task with OpenWeatherApi
+# This is my Weather App with OpenWeatherApi
 
 ## Functionality that was implemented:
   1) There is a basic list of big cities. App gets weather conditions and air conditions for this cities and show it
